@@ -1,0 +1,16 @@
+{
+  "name": "catalogue-maker",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "watch": "tailwindcss -i ./assets/css/main.css -o ./assets/css/tailwind.css --watch"
+  },
+  "keywords": [],
+  "author": "RK",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "daisyui": "^4.12.10",
+    "tailwindcss": "^3.4.13"
+  }
+}
