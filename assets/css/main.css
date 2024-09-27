@@ -4,11 +4,16 @@
 
 
 body{
-    background: #F8F9FB;
+    @apply bg-[#F8F9FB] text-black;
+
 }
 
 .main-btn{
     @apply btn px-6 bg-orange-500 text-white hover:bg-black hover:text-orange-500 uppercase;
+}
+
+button[aria-expanded="true"]{
+    @apply text-orange-500;
 }
 
 .catalogue-items_wrapper .grid-item {
