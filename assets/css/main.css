@@ -16,14 +16,16 @@ button[aria-expanded="true"]{
     @apply text-orange-500;
 }
 
-.catalogue-items_wrapper .grid-item {
-    page-break-inside: avoid;
-    -webkit-column-break-inside: avoid;
-    -moz-column-break-inside: avoid;
-    break-inside: avoid;
-}
 
 .catalogue-items_wrapper {
     padding: 10mm; /* Adds padding on all sides */
+}
 
+
+.catalogue table tr{
+    border: none;
+}
+
+table tr{
+    break-inside: avoid;
 }
