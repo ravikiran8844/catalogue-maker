@@ -2147,6 +2147,10 @@ input[type="range"]::-ms-fill-lower {
   display: none;
 }
 
+.aspect-square {
+  aspect-ratio: 1 / 1;
+}
+
 .size-4 {
   width: 1rem;
   height: 1rem;
@@ -2237,10 +2241,6 @@ input[type="range"]::-ms-fill-lower {
 
 .min-w-\[800px\] {
   min-width: 800px;
-}
-
-.max-w-5xl {
-  max-width: 64rem;
 }
 
 .max-w-full {
