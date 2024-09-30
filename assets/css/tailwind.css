@@ -2243,6 +2243,10 @@ input[type="range"]::-ms-fill-lower {
   max-width: 64rem;
 }
 
+.max-w-full {
+  max-width: 100%;
+}
+
 .max-w-md {
   max-width: 28rem;
 }
