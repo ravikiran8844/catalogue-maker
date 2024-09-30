@@ -1,6 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./**/*.html"],
+  content: [
+    "./**/*.html",
+    "!./node_modules/**/*",  // Exclude node_modules from scanning
+  ],
   theme: {
     container: {
       center: true,
@@ -16,8 +19,6 @@ module.exports = {
   },
   plugins: [
     require('daisyui'),
-    require('flowbite/plugin')
-
+    require('flowbite/plugin'),
   ],
 }
-
