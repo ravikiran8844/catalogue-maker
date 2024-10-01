@@ -2,18 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.cdnfonts.com/css/helvetica-neue-5');
 
 body{
     @apply bg-[#F8F9FB] text-black;
+    font-family: 'Helvetica Neue', sans-serif;
 
 }
 
 .main-btn{
-    @apply btn px-6 bg-orange-500 text-white hover:bg-black hover:text-orange-500 uppercase;
+    @apply btn btn-lg px-6 font-medium text-sm bg-[#F78D1E] text-white hover:bg-black hover:text-[#F78D1E] uppercase;
 }
 
 button[aria-expanded="true"]{
-    @apply text-orange-500;
+    @apply text-[#F78D1E];
 }
 
 
@@ -28,4 +30,10 @@ button[aria-expanded="true"]{
 
 table tr{
     break-inside: avoid;
+}
+
+.filter-grid-items{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
 }

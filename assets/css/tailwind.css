@@ -2405,6 +2405,11 @@ input[type="range"]::-ms-fill-lower {
   background-color: rgb(249 250 251 / var(--tw-bg-opacity)) !important;
 }
 
+.bg-\[\#F78D1E\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(247 141 30 / var(--tw-bg-opacity));
+}
+
 .bg-black {
   --tw-bg-opacity: 1;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
@@ -2423,11 +2428,6 @@ input[type="range"]::-ms-fill-lower {
 .bg-gray-400 {
   --tw-bg-opacity: 1;
   background-color: rgb(156 163 175 / var(--tw-bg-opacity));
-}
-
-.bg-orange-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 90 31 / var(--tw-bg-opacity));
 }
 
 .bg-transparent {
@@ -2471,6 +2471,11 @@ input[type="range"]::-ms-fill-lower {
   line-height: 1.25rem;
 }
 
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
 .font-bold {
   font-weight: 700;
 }
@@ -2487,12 +2492,21 @@ input[type="range"]::-ms-fill-lower {
   text-transform: uppercase;
 }
 
+.lowercase {
+  text-transform: lowercase;
+}
+
 .leading-6 {
   line-height: 1.5rem;
 }
 
 .leading-9 {
   line-height: 2.25rem;
+}
+
+.text-\[\#F78D1E\] {
+  --tw-text-opacity: 1;
+  color: rgb(247 141 30 / var(--tw-text-opacity));
 }
 
 .text-black {
@@ -2508,11 +2522,6 @@ input[type="range"]::-ms-fill-lower {
 .text-gray-900 {
   --tw-text-opacity: 1;
   color: rgb(17 24 39 / var(--tw-text-opacity));
-}
-
-.text-orange-500 {
-  --tw-text-opacity: 1;
-  color: rgb(255 90 31 / var(--tw-text-opacity));
 }
 
 .text-yellow-400 {
@@ -2531,6 +2540,7 @@ body {
   background-color: rgb(248 249 251 / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
+  font-family: 'Helvetica Neue', sans-serif;
 }
 
 .main-btn {
@@ -2758,6 +2768,27 @@ body {
   margin-inline-start: calc(var(--border-btn) * -1);
 }
 
+.main-btn {
+  height: 4rem;
+  min-height: 4rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  font-size: 1.125rem;
+}
+
+.btn-square:where(.main-btn) {
+  height: 4rem;
+  width: 4rem;
+  padding: 0px;
+}
+
+.btn-circle:where(.main-btn) {
+  height: 4rem;
+  width: 4rem;
+  border-radius: 9999px;
+  padding: 0px;
+}
+
 .join.join-vertical > :where(*:not(:first-child)):is(.main-btn) {
   margin-top: calc(var(--border-btn) * -1);
 }
@@ -2768,9 +2799,12 @@ body {
 
 .main-btn {
   --tw-bg-opacity: 1;
-  background-color: rgb(255 90 31 / var(--tw-bg-opacity));
+  background-color: rgb(247 141 30 / var(--tw-bg-opacity));
   padding-left: 1.5rem;
   padding-right: 1.5rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 500;
   text-transform: uppercase;
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
@@ -2780,12 +2814,12 @@ body {
   --tw-bg-opacity: 1;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
-  color: rgb(255 90 31 / var(--tw-text-opacity));
+  color: rgb(247 141 30 / var(--tw-text-opacity));
 }
 
 button[aria-expanded="true"] {
   --tw-text-opacity: 1;
-  color: rgb(255 90 31 / var(--tw-text-opacity));
+  color: rgb(247 141 30 / var(--tw-text-opacity));
 }
 
 .catalogue-items_wrapper {
@@ -2802,6 +2836,12 @@ table tr{
        break-inside: avoid;
 }
 
+.filter-grid-items{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
 .hover\:bg-black:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
@@ -2812,19 +2852,14 @@ table tr{
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
+.hover\:text-\[\#F78D1E\]:hover {
+  --tw-text-opacity: 1;
+  color: rgb(247 141 30 / var(--tw-text-opacity));
+}
+
 .hover\:text-black:hover {
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
-}
-
-.hover\:text-orange-500:hover {
-  --tw-text-opacity: 1;
-  color: rgb(255 90 31 / var(--tw-text-opacity));
-}
-
-.hover\:text-white:hover {
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 .focus\:ring-0:focus {
@@ -2843,9 +2878,9 @@ table tr{
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
 }
 
-.group:hover .group-hover\:text-orange-500 {
+.group:hover .group-hover\:text-\[\#F78D1E\] {
   --tw-text-opacity: 1;
-  color: rgb(255 90 31 / var(--tw-text-opacity));
+  color: rgb(247 141 30 / var(--tw-text-opacity));
 }
 
 .dark\:\!bg-gray-700:is(.dark *) {
