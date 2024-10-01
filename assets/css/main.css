@@ -37,3 +37,9 @@ table tr{
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 20px;
 }
+#alphabet-filter button{
+    @apply p-1;
+}
+#alphabet-filter button.active{
+    @apply text-white bg-orange-500 rounded-sm;
+}

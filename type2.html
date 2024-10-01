@@ -311,16 +311,16 @@
                 </svg>
               </button>
             </h2>
-            <div
-              id="accordion-open-body-3"
-              class="hidden"
-              aria-labelledby="accordion-open-heading-3"
-            >
-              <div
-                class="p-5 border rounded-b-xl filter-grid-items border-gray-200 bg-white"
-                id="collection-filters-body"
-              ></div>
-            </div>
+            <div id="accordion-open-body-3" class="hidden" aria-labelledby="accordion-open-heading-3">
+              <div class="p-5 border rounded-b-xl border-gray-200 bg-white">
+                  <!-- Alphabet filter container -->
+                  <div id="alphabet-filter" class="mb-4 flex gap-2"></div>
+          
+                  <!-- Collection filters body -->
+                  <div id="collection-filters-body" class="filter-grid-items"></div>
+              </div>
+          </div>
+          
           </div>
 
           <div class="mt-10">
@@ -1126,30 +1126,105 @@
         },
       ];
 
-      // Function to handleize the collection name
-      function handleize(str) {
-        return str.toLowerCase().replace(/\s+/g, "-"); // Convert spaces to dashes and lowercase the string
-      }
-      let collectionFiltersContainer = document.getElementById(
-        "collection-filters-body"
-      );
-      godsCollection.map((item) => {
-        let div = document.createElement("div"); // Fixed variable naming conflict
-        let filterName = item.collection_name;
-        let handleizedName = handleize(filterName); // Convert name to handleized version for id and for attributes
+// Function to handleize the collection name
+function handleize(str) {
+    return str.toLowerCase().replace(/\s+/g, "-"); // Convert spaces to dashes and lowercase the string
+}
 
-        div.innerHTML = `
-    <div class="flex gap-4">
-      <div class="flex items-center me-4">
-        <input id="${handleizedName}" type="checkbox" value="" class="w-4 h-4 text-yellow-400 bg-gray-100 border-gray-300 rounded focus:ring-yellow-500 focus:ring-0 ">
-        <label for="${handleizedName}" class="ms-2 text-xs text-gray-900 dark:text-gray-300">${filterName}</label>
-      </div>
-    </div>
-  `;
+let collectionFiltersContainer = document.getElementById("collection-filters-body");
+let alphabetContainer = document.getElementById("alphabet-filter");
 
-        collectionFiltersContainer.appendChild(div);
-      });
-    </script>
+// Create a Set to track available starting letters
+const availableLetters = new Set();
+
+// Populate the Set with the starting letters of collection names
+godsCollection.forEach(item => {
+    const firstLetter = item.collection_name.charAt(0).toUpperCase();
+    availableLetters.add(firstLetter);
+});
+
+// Create A-Z filter buttons for available letters only
+const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+alphabet.split('').forEach(letter => {
+    if (availableLetters.has(letter)) { // Only add button if there are items starting with the letter
+        let letterDiv = document.createElement('div');
+        letterDiv.innerHTML = `
+            <button id="filter-${letter}" class="text-sm font-medium text-orange-500 hover:text-yellow-500" data-letter="${letter}">
+                ${letter}
+            </button>
+        `;
+        alphabetContainer.appendChild(letterDiv);
+    } else {
+        let letterDiv = document.createElement('div');
+        letterDiv.innerHTML = `
+            <button id="filter-${letter}" class="text-sm font-medium text-gray-300" disabled data-letter="${letter}">
+                ${letter}
+            </button>
+        `;
+        alphabetContainer.appendChild(letterDiv);
+    }
+});
+
+// Filter collections by letter on button click and highlight active button
+alphabetContainer.addEventListener('click', function(event) {
+    if (event.target.tagName === 'BUTTON') {
+        const selectedLetter = event.target.getAttribute('data-letter');
+        const itemsToShow = godsCollection.filter(item => item.collection_name.startsWith(selectedLetter));
+        
+        // Clear previous filters
+        collectionFiltersContainer.innerHTML = '';
+
+        // Remove the active state from all buttons
+        document.querySelectorAll('#alphabet-filter button').forEach(button => {
+            button.classList.remove('active');
+        });
+
+        // Add active state to the clicked button
+        event.target.classList.add('active');
+        // Display the filtered items
+        if (itemsToShow.length > 0) {
+            itemsToShow.forEach(item => {
+                let div = document.createElement('div');
+                let filterName = item.collection_name;
+                let handleizedName = handleize(filterName);
+
+                div.innerHTML = `
+                    <div class="flex gap-4">
+                        <div class="flex items-center me-4">
+                            <input id="${handleizedName}" type="checkbox" value="" class="w-4 h-4 text-yellow-400 bg-gray-100 border-gray-300 rounded focus:ring-yellow-500 focus:ring-0 ">
+                            <label for="${handleizedName}" class="ms-2 text-xs text-gray-900 dark:text-gray-300">${filterName}</label>
+                        </div>
+                    </div>
+                `;
+                collectionFiltersContainer.appendChild(div);
+            });
+        } else {
+            // Disable the button if no items are available
+            event.target.disabled = true;    
+        }
+    }
+});
+
+// Populate collection filters initially with all items
+godsCollection.forEach(item => {
+    let div = document.createElement('div');
+    let filterName = item.collection_name;
+    let handleizedName = handleize(filterName);
+
+    div.innerHTML = `
+        <div class="flex gap-4">
+            <div class="flex items-center me-4">
+                <input id="${handleizedName}" type="checkbox" value="" class="w-4 h-4 text-yellow-400 bg-gray-100 border-gray-300 rounded focus:ring-yellow-500 focus:ring-0 ">
+                <label for="${handleizedName}" class="ms-2 text-xs text-gray-900 dark:text-gray-300">${filterName}</label>
+            </div>
+        </div>
+    `;
+    collectionFiltersContainer.appendChild(div);
+});
+
+
+</script>
+
 
     <script>
       function downloadPDF() {
