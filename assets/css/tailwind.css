@@ -3101,9 +3101,13 @@ tr,td {
   #non-printable {
     display: none;
   }
+
+  main .grid-item{
+    padding-top: 60px;
+  }
 }
 
-.format1{
+.format1,.format2-bg,.format3-bg{
   padding: 40px;
 }
 
@@ -3112,7 +3116,6 @@ tr,td {
   background-size: cover;
   background-repeat: repeat;
   background-position: center;
-  padding: 40px;
 }
 
 .format3-bg{
@@ -3120,7 +3123,6 @@ tr,td {
   background-size: cover;
   background-repeat: repeat;
   background-position: center;
-  padding: 40px;
 }
 
 .hover\:scale-105:hover {

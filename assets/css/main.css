@@ -94,18 +94,23 @@ break-inside: avoid;}
     #non-printable {
       display: none;
     }
+  
+   main .grid-item{
+      padding-top: 60px;
+    }
 
   }
-  .format1{
+
+  .format1,.format2-bg,.format3-bg{
     padding: 40px;
   }
+  
 
   .format2-bg{
     background-image: url('/assets/images/pdf/format2/bg.png');
     background-size: cover;
     background-repeat: repeat;
     background-position: center;
-    padding: 40px;
   }
 
   .format3-bg{
@@ -113,5 +118,4 @@ break-inside: avoid;}
     background-size: cover;
     background-repeat: repeat;
     background-position: center;
-    padding: 40px;
   }
