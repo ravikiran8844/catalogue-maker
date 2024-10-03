@@ -5,10 +5,8 @@
 @import url('https://fonts.cdnfonts.com/css/helvetica-neue-5');
 
 body{
-    @apply bg-[#F8F9FB] text-black;
-    font-family: 'Helvetica Neue', sans-serif;
-
-}
+    @apply bg-[#F8F9FB] text-black print:bg-white;
+    font-family: 'Helvetica Neue', sans-serif;}
 
 .main-btn{
     @apply btn btn-lg px-6 font-medium text-sm bg-[#F78D1E] text-white hover:bg-black hover:text-[#F78D1E] uppercase;
@@ -28,9 +26,7 @@ button[aria-expanded="true"]{
     border: none;
 }
 
-table tr{
-    break-inside: avoid;
-}
+
 
 .filter-grid-items{
     display: grid;
@@ -43,3 +39,79 @@ table tr{
 #alphabet-filter button.active{
     @apply text-white bg-orange-500 rounded-sm;
 }
+
+
+tr,td { page-break-inside:avoid; 
+break-inside: avoid;}
+
+
+  /* Make each grid item relative for proper absolute positioning of borders */
+  #catalogue .grid > div {
+    position: relative; /* Required for absolute positioning */
+  }
+
+  /* Vertical borders for center column (2nd item in each row) */
+  #catalogue .grid > div:nth-child(3n + 2)::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -4px; /* Position left border */
+    width: 1px;
+    background-color: #E74727; /* Tailwind gray-300 */
+  }
+  
+  #catalogue .grid > div:nth-child(3n + 2)::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: -4px; /* Position right border */
+    width: 1px;
+    background-color: #E74727; /* Tailwind gray-300 */
+  }
+
+
+  #catalogue  .grid-item{
+    width: 100%;
+    padding: 0px 16px;
+  }
+
+
+
+@media print {
+    @page {
+      size: landscape; /* Force landscape orientation */
+      margin: 0;
+    }
+
+    body {
+      transform: rotate(0deg); /* Keep content in place */
+    }
+ 
+
+    /* Optionally hide non-essential elements during print */
+    #non-printable {
+      display: none;
+    }
+
+  }
+  .format1{
+    padding: 40px;
+  }
+
+  .format2-bg{
+    background-image: url('/assets/images/pdf/format2/bg.png');
+    background-size: cover;
+    background-repeat: repeat;
+    background-position: center;
+    padding: 40px;
+  }
+
+  .format3-bg{
+    background-image: url('/assets/images/pdf/format3/bg.png');
+    background-size: cover;
+    background-repeat: repeat;
+    background-position: center;
+    padding: 40px;
+  }
