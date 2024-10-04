@@ -41,8 +41,7 @@ button[aria-expanded="true"]{
 }
 
 
-tr,td { page-break-inside:avoid; 
-break-inside: avoid;}
+tr { page-break-inside:avoid; break-inside: avoid;}
 
 
   /* Make each grid item relative for proper absolute positioning of borders */
@@ -77,7 +76,9 @@ break-inside: avoid;}
     padding: 0px 16px;
   }
 
-
+.catalogue-item {
+  padding: 30px 16px;
+}
 
 @media print {
     @page {
@@ -102,7 +103,7 @@ break-inside: avoid;}
   }
 
   .format1,.format2-bg,.format3-bg{
-    padding: 40px;
+    padding: 40px 0px;
   }
   
 
