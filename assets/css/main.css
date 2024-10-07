@@ -68,6 +68,7 @@ tr { page-break-inside:avoid; break-inside: avoid;}
     right: -4px; /* Position right border */
     width: 1px;
     background-color: #E74727; /* Tailwind gray-300 */
+
   }
 
 
@@ -90,21 +91,14 @@ tr { page-break-inside:avoid; break-inside: avoid;}
       transform: rotate(0deg); /* Keep content in place */
     }
  
-
     /* Optionally hide non-essential elements during print */
     #non-printable {
       display: none;
     }
-  
-   main .grid-item{
-      padding-top: 60px;
-    }
 
   }
 
-  .format1,.format2-bg,.format3-bg{
-    padding: 40px 0px;
-  }
+
   
 
   .format2-bg{
@@ -120,3 +114,23 @@ tr { page-break-inside:avoid; break-inside: avoid;}
     background-repeat: repeat;
     background-position: center;
   }
+
+  @media (max-width: 1024px) {
+    .page {
+        min-width: 1024px; /* Landscape width */
+    }
+}
+
+.image-scroll {
+  object-fit: cover; /* Ensure the image covers the container */
+  transition: transform 5s ease-in-out; /* Smooth transition */
+  transform: translateY(0); /* Initial position */
+}
+
+.catalogue-card {
+  height: 24rem; /* Adjust as per your card height */
+}
+
+.catalogue-card:hover .image-scroll {
+  transform: translateY(calc(-100% + 24rem)); /* Move only the portion of the image that is overflowed */
+}
