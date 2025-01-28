@@ -45,12 +45,12 @@ tr { page-break-inside:avoid; break-inside: avoid;}
 
 
   /* Make each grid item relative for proper absolute positioning of borders */
-  #catalogue .grid > div {
+  #catalogue .footer .grid > div {
     position: relative; /* Required for absolute positioning */
   }
 
   /* Vertical borders for center column (2nd item in each row) */
-  #catalogue .grid > div:nth-child(3n + 2)::before {
+  #catalogue .footer .grid > div:nth-child(3n + 2)::before {
     content: '';
     position: absolute;
     top: 0;
@@ -60,7 +60,7 @@ tr { page-break-inside:avoid; break-inside: avoid;}
     background-color: #E74727; /* Tailwind gray-300 */
   }
   
-  #catalogue .grid > div:nth-child(3n + 2)::after {
+  #catalogue .footer .grid > div:nth-child(3n + 2)::after {
     content: '';
     position: absolute;
     top: 0;
@@ -134,3 +134,18 @@ tr { page-break-inside:avoid; break-inside: avoid;}
 .catalogue-card:hover .image-scroll {
   transform: translateY(calc(-100% + 24rem)); /* Move only the portion of the image that is overflowed */
 }
+
+
+  /* Vertical borders for center column (2nd item in each row) */
+  /* #catalogue .no-lines.grid > div:nth-child(3n + 2)::before {
+    content: '';
+    position: absolute;
+    background-color: transparent; 
+  }
+  
+  #catalogue .no-lines.grid > div:nth-child(3n + 2)::after {
+    content: '';
+    position: absolute;
+    background-color: transparent; 
+
+  } */

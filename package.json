@@ -2,18 +2,20 @@
   "name": "catalogue-maker",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "watch": "tailwindcss -i ./assets/css/main.css -o ./assets/css/tailwind.css --watch"
   },
   "keywords": [],
   "author": "RK",
   "license": "ISC",
-  "description": "",
   "devDependencies": {
     "daisyui": "^4.12.10",
     "tailwindcss": "^3.4.13"
   },
   "dependencies": {
-    "flowbite": "^2.5.2"
-  }
+    "flowbite": "^2.5.2",
+    "html3pdf": "^0.12.2"
+  },
+  "description": ""
 }
