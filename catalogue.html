@@ -91,5 +91,34 @@
         </div>
       </section>
     </main>
+
+
+    <script>
+      // Create loader element dynamically
+const loader = document.createElement("div");
+loader.id = "loader";
+loader.className =
+  "fixed inset-0 flex items-center justify-center bg-white z-50";
+loader.innerHTML = `
+    <div class="w-12 h-12 border-4 border-orange-500 border-t-transparent rounded-full animate-spin"></div>
+`;
+
+// Insert loader into the body
+document.body.appendChild(loader);
+
+window.addEventListener("load", function () {
+  setTimeout(() => {
+    // Remove loader
+    loader.style.display = "none";
+
+    // Show the main content
+    const mainContent = document.querySelector("main.container");
+    if (mainContent) {
+      mainContent.classList.remove("hidden");
+    }
+  }, 2000); // Hide loader after 2 seconds
+});
+
+    </script>
   </body>
 </html>

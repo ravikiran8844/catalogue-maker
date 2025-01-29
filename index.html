@@ -7,7 +7,12 @@
     <link rel="stylesheet" href="assets/css/tailwind.css" />
   </head>
   <body>
-    <main class="min-h-screen container">
+       <!-- Loader -->
+    <div id="loader" class="fixed inset-0 flex items-center justify-center bg-white z-50">
+        <div class="w-12 h-12 border-4 border-orange-500 border-t-transparent rounded-full animate-spin"></div>
+    </div>
+
+    <main class="min-h-screen container hidden" id="content">
       <header>
         <nav class="py-10">
           <!-- Parent container with responsive flex settings -->
@@ -103,5 +108,16 @@
         </div>
       </section>
     </main>
+
+
+    <script>
+      window.addEventListener("load", function () {
+            setTimeout(() => {
+                document.getElementById("loader").style.display = "none";
+                document.getElementById("content").classList.remove("hidden");
+            }, 2000); // Hide loader after 2 seconds
+        });
+
+    </script>
   </body>
 </html>
